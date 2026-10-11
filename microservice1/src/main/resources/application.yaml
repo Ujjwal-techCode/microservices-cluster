@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: microservice1
+
+server:
+  #port: 8181  #This port and feignClient url has been blocked to run it in EurekaDiscoveryServer.
+  port: 0
+
+receiver:
+  api:
+    url: http://localhost:8080
+
+logging:
+  level:
+    com.microservice.callsender.client: DEBUG
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: ${spring.application.name}:${random.value}

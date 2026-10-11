@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: microservice2
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  #port: 8080    #this port has been blocked to run it on eureka Discovery Server with random port.
+  port: 0
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registery: true
+
+  instance:
+    instance-id: ${spring.application.name}:${random.value}

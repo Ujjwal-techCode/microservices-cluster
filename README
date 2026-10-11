@@ -1,0 +1,6 @@
+microservices-cluster project has clubbed 4 projects but they need to be started individually as only
+parent to child relation has been created, child to parent relation has not been configured hence run
+them individually in sequence to connect them with one another.
+
+when Dockerization will be configured and automatic CI/CD will be configured using git hub actions then
+these things will be taken care.

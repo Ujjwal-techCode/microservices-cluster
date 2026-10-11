@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: apiGateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: MICROSERVICE1
+              #uri: http://192.168.1.34:58714   #static routing
+              uri: lb://MICROSERVICE1           #Dynamic routing
+              predicates:
+                - Path=/postman/**
+            - id: MICROSERVICE2
+              #uri: http://192.168.1.34:58704
+              uri: lb://MICROSERVICE2
+              predicates:
+                - Path=/users/**
+
+server:
+  port: 9090
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
